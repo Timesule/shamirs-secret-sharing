@@ -3,7 +3,7 @@ import { randomBytes } from 'crypto'
 export default class SharmirsSecretSharing {
   private static stdPrime = 4294967389n // smallest prime larger than 2^32
   private static rndInt = (): bigint => {
-    return randomBytes(64).readBigUint64BE() % this.stdPrime
+    return randomBytes(64).readBigUInt64BE() % this.stdPrime
   }
 
   public static split = (
@@ -53,7 +53,7 @@ export default class SharmirsSecretSharing {
     if (shards.length != Math.round(threshold / shards.length)) {
       throw new Error('shard count not equal to threshold')
     }
-    shards.slice(0, threshold).forEach((shard) => {
+    shards.slice(0, shards.length).forEach((shard) => {
       const index = Number(`0x${shard.slice(0, 4)}`)
       for (let i = 0; i < Math.ceil(shard.length / 8); i++) {
         const fragShard = shard.slice(i * 8 + 9, i * 8 + 17)
@@ -81,7 +81,7 @@ export default class SharmirsSecretSharing {
       buffer[4 * index + 3] = fragment % 256
     })
     return buffer
-      .slice(0, buffer.byteLength - Math.round(remainder / shards.length))
+      .slice(0, buffer.byteLength - (Math.round(remainder / shards.length) % 4))
       .toString('utf-8')
   }
 
@@ -94,7 +94,6 @@ export default class SharmirsSecretSharing {
     for (let i = 1; i < k; i++) {
       coeff.push(this.rndInt())
     }
-
     const shards: string[] = []
 
     for (let i = 1; i <= n; i++) {
@@ -131,6 +130,9 @@ export default class SharmirsSecretSharing {
           accum +
           shards[i].data * numerator * this.modInv(denominator)) %
         this.stdPrime
+      while (accum < 0n) {
+        accum += this.stdPrime
+      }
     }
     return Number(accum)
   }
