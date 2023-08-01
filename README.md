@@ -1,4 +1,6 @@
-# Sharmir's Secret Sharing
+# Sharmir's Secret Sharing 
+[![Nodejs CI](https://github.com/Timesule/shamirs-secret-sharing/actions/workflows/nodejs-ci.yml/badge.svg)](https://github.com/Timesule/shamirs-secret-sharing/actions/workflows/nodejs-ci.yml)
+[![NPM CD](https://github.com/Timesule/shamirs-secret-sharing/actions/workflows/npm-cd.yml/badge.svg)](https://github.com/Timesule/shamirs-secret-sharing/actions/workflows/npm-cd.yml)
 
 Implementation of Sharmir's Secret Sharing in Typescript
 
