@@ -1,5 +1,5 @@
-import crypto from 'crypto';
-import { SSS } from '../lib/index';
+const crypto = require('crypto');
+const { SSS } = require('../lib/index.js');
 
 /* -------------------------------------------------------------------------- */
 /*    Splits and combines a secret buffer with 2/3 Sharmir's Secret Sharing   */

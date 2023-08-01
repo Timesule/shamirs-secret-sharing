@@ -1,5 +1,7 @@
 # Sharmir's Secret Sharing
 
+Implementation of Sharmir's Secret Sharing in Typescript
+
 ### Installation
 
 ```bash
@@ -8,14 +10,19 @@ npm install
 
 ### Usage
 
-```typescript=
-import SSS from 'shamirs-secret-sharing'
+```javascript
+const { SSS } = require('../lib/index.js');
+// or
+const { ShamirsSecretSharing } = require('../lib/index.js');
 ```
 
-Check examples/\* for more information
+```typescript
+import { SSS } from 'shamirs-secret-sharing';
+// or
+import { ShamirsSecretSharing } from 'shamirs-secret-sharing';
+```
 
-- `examples/string.ts`: split secret string
-- `examples/buffer.ts`: split secret buffer
+Check [examples/\*](./examples/) for more information
 
 ## Class SharmirsSecretSharing
 
