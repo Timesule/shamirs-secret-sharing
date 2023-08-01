@@ -7,7 +7,7 @@ Implementation of Sharmir's Secret Sharing in Typescript
 ### Installation
 
 ```bash
-npm install
+npm i @timesule/shamirs-secret-sharing
 ```
 
 ### Usage
