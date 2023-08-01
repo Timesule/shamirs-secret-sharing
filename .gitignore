@@ -1,2 +1,5 @@
 node_modules
 dist
+jest-report.html
+jest-html-*
+coverage
